@@ -553,8 +553,15 @@ func (s *Server) genresHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	genres, err := s.tmdbService.GetGenres()
+	if err != nil {
+		s.sendError(w, http.StatusInternalServerError, "Failed to fetch genres: "+err.Error())
+		return
+	}
+
 	s.sendJSON(w, http.StatusOK, map[string]interface{}{
-		"message": "Get genres endpoint - to be implemented",
+		"success": true,
+		"data":    genres,
 	})
 }
 
