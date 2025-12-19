@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useWatchlist } from '../context/WatchlistContext.jsx'
 import { apiUtils } from '../services/api.js'
-import jsPDF from 'jspdf'
+// import jsPDF from 'jspdf' // Removed - not installed
 
 const Watchlist = () => {
   const { items, removeFromWatchlist, markAsWatched, markAsUnwatched } = useWatchlist()
@@ -61,14 +61,7 @@ const Watchlist = () => {
   }
 
   const exportPDF = () => {
-    const doc = new jsPDF()
-    doc.text('My Watchlist', 10, 10)
-    let y = 20
-    items.forEach(item => {
-      doc.text(`${item.title || item.name} (${item.contentType}) - Watched: ${item.isWatched ? 'Yes' : 'No'}`, 10, y)
-      y += 10
-    })
-    doc.save('watchlist.pdf')
+    alert('PDF export feature requires additional setup. Use CSV export instead.')
   }
 
   const WatchlistCard = ({ item }) => (

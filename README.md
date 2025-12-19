@@ -15,7 +15,7 @@ A comprehensive entertainment discovery platform where users can search for movi
 
 ## Tech Stack
 
-- **Backend**: Go (Gin framework, SQLite database)
+- **Backend**: Go (HTTP server, SQLite database)
 - **Frontend**: React (Vite, vanilla CSS)
 - **APIs**: TMDB, OMDB, YouTube (optional)
 - **Database**: SQLite
@@ -78,22 +78,22 @@ binge-base/
 
 ### Phase 1: Foundation
 - [x] Project structure setup
-- [ ] Basic Go server with Gin
-- [ ] React app with Vite
-- [ ] API integration setup
-- [ ] Database models
+- [x] Basic Go server (HTTP)
+- [x] React app with Vite
+- [x] API integration setup
+- [x] Database models
 
 ### Phase 2: Core Features
-- [ ] Search functionality
-- [ ] Movie/TV show details
-- [ ] Watchlist management
-- [ ] Trending content
+- [x] Search functionality
+- [x] Movie/TV show details
+- [x] Watchlist management
+- [x] Trending content
 
 ### Phase 3: Advanced Features
-- [ ] Genre filtering
+- [x] Genre filtering
 - [ ] Recommendations
 - [ ] User ratings
-- [ ] Responsive design
+- [x] Responsive design
 
 ## Contributing
 

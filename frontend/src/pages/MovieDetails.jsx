@@ -55,7 +55,7 @@ const MovieDetails = () => {
   if (!movie) return null
 
   const isInWatchlist = watchlist.isInWatchlist(Number(id), 'movie')
-  const handleAdd = () => watchlist.addToWatchlist({ ...movie, id: Number(id), media_type: 'movie' })
+  const handleAdd = () => watchlist.addToWatchlist({ id: Number(id), media_type: 'movie' })
   const handleRemove = () => watchlist.removeFromWatchlist(Number(id), 'movie')
 
   console.log('Movie details:', movie)

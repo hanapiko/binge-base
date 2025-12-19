@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { contentAPI, apiUtils } from '../services/api.js'
+import { useWatchlist } from '../context/WatchlistContext.jsx'
 
 const TVDetails = () => {
   const { id } = useParams()
   const [tv, setTV] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const watchlist = useWatchlist()
 
   useEffect(() => {
     const fetchTV = async () => {
@@ -68,7 +70,15 @@ const TVDetails = () => {
             <div><strong>Seasons:</strong> {tv.number_of_seasons}</div>
             <div><strong>Episodes:</strong> {tv.number_of_episodes}</div>
           </div>
-          {/* Add more details as needed, e.g., cast, ratings from OMDB, etc. */}
+          <div className="watchlist-action">
+            {watchlist.loading ? (
+              <button disabled>Updating...</button>
+            ) : watchlist.isInWatchlist(Number(id), 'tv') ? (
+              <button onClick={() => watchlist.removeFromWatchlist(Number(id), 'tv')} className="btn btn-secondary">Remove from Watchlist</button>
+            ) : (
+              <button onClick={() => watchlist.addToWatchlist({ id: Number(id), media_type: 'tv' })} className="btn btn-primary">Add to Watchlist</button>
+            )}
+          </div>
         </div>
       </div>
     </div>
